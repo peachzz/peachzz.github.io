@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      自定义百分比布局PercentRelativeLayout | 归档 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Terry">
+    
+    
+
+    <meta name="description" content="随着Android系统版本的不断迭代升级，支持的设备也越来越多，从最初的手机，到现在覆盖watch，TV等，应用越来越广泛，但是暴露出的碎片化问题也愈发突出，设备适配也变成了一个复杂的任务，基于以上问题，编写具有百分比的自定义布局适配各中不同设备显得十分必要。  自定义布局首先是自定义属性：  1234567&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;qu">
+<meta name="keywords" content="自定义View">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义百分比布局PercentRelativeLayout | 归档">
+<meta property="og:url" content="https://peachzz.github.io/2017/07/17/自定义百分比布局PercentRelativeLayout/index.html">
+<meta property="og:site_name" content="归档">
+<meta property="og:description" content="随着Android系统版本的不断迭代升级，支持的设备也越来越多，从最初的手机，到现在覆盖watch，TV等，应用越来越广泛，但是暴露出的碎片化问题也愈发突出，设备适配也变成了一个复杂的任务，基于以上问题，编写具有百分比的自定义布局适配各中不同设备显得十分必要。  自定义布局首先是自定义属性：  1234567&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;qu">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1813980-a335aa09990fe87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-10-14T08:40:07.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义百分比布局PercentRelativeLayout | 归档">
+<meta name="twitter:description" content="随着Android系统版本的不断迭代升级，支持的设备也越来越多，从最初的手机，到现在覆盖watch，TV等，应用越来越广泛，但是暴露出的碎片化问题也愈发突出，设备适配也变成了一个复杂的任务，基于以上问题，编写具有百分比的自定义布局适配各中不同设备显得十分必要。  自定义布局首先是自定义属性：  1234567&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;qu">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1813980-a335aa09990fe87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">归档</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          千里之行始于足下
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">自定义百分比布局PercentRelativeLayout</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-17" class="post-meta__date date">2017-07-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/设计模式/">设计模式</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/自定义View/">自定义View</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>随着Android系统版本的不断迭代升级，支持的设备也越来越多，从最初的手机，到现在覆盖watch，TV等，应用越来越广泛，但是暴露出的碎片化问题也愈发突出，设备适配也变成了一个复杂的任务，基于以上问题，编写具有百分比的自定义布局适配各中不同设备显得十分必要。</p>
+<ul>
+<li>自定义布局首先是自定义属性：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line">    &lt;declare-styleable name=&quot;PercentRelativelayout&quot;&gt;</div><div class="line">        &lt;attr name=&quot;layout_widthPercent&quot; format=&quot;float&quot;&gt;&lt;/attr&gt;</div><div class="line">        &lt;attr name=&quot;layout_heightPercent&quot; format=&quot;float&quot;&gt;&lt;/attr&gt;</div><div class="line">    &lt;/declare-styleable&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>其次是继承Relativelayout布局，并重写里面对应的方法:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public class PercentRelativelayout extends RelativeLayout &#123;</div><div class="line"></div><div class="line">    public PercentRelativelayout(Context context) &#123;</div><div class="line">        super(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public PercentRelativelayout(Context context, AttributeSet attrs) &#123;</div><div class="line">        super(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public PercentRelativelayout(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">        super(context, attrs, defStyleAttr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) &#123;</div><div class="line">        int width = View.MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">        int height = View.MeasureSpec.getSize(heightMeasureSpec);</div><div class="line"></div><div class="line">        //测量子控件的高度进行改变</div><div class="line">        int childCount = this.getChildCount();</div><div class="line">        for (int i = 0; i &lt; childCount; i++) &#123;</div><div class="line">            View child = this.getChildAt(i);//每一个子控件</div><div class="line">            ViewGroup.LayoutParams layoutParams = child.getLayoutParams();</div><div class="line">            //解析自定义进行替换</div><div class="line">            float widthPercent = 0;</div><div class="line">            float heightPercent = 0;</div><div class="line">            if (layoutParams instanceof PercentRelativelayout.LayoutParams) &#123;</div><div class="line">                widthPercent = ((LayoutParams) layoutParams).getWidthPercent();</div><div class="line">                heightPercent = ((LayoutParams) layoutParams).getHeightPercent();</div><div class="line">            &#125;</div><div class="line">            if (widthPercent != 0) &#123;</div><div class="line">                layoutParams.width = (int) (width * widthPercent);</div><div class="line">            &#125;</div><div class="line">            if (heightPercent != 0) &#123;</div><div class="line">                layoutParams.height = (int) (height * heightPercent);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        super.onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onLayout(boolean changed, int l, int t, int r, int b) &#123;</div><div class="line">        super.onLayout(changed, l, t, r, b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public LayoutParams generateLayoutParams(AttributeSet attrs) &#123;</div><div class="line">        return new LayoutParams(getContext(), attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static class LayoutParams extends RelativeLayout.LayoutParams &#123;</div><div class="line"></div><div class="line">        private float widthPercent;</div><div class="line">        private float heightPercent;</div><div class="line"></div><div class="line">        public float getWidthPercent() &#123;</div><div class="line">            return widthPercent;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void setWidthPercent(float widthPercent) &#123;</div><div class="line">            this.widthPercent = widthPercent;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public float getHeightPercent() &#123;</div><div class="line">            return heightPercent;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void setHeightPercent(float heightPercent) &#123;</div><div class="line">            this.heightPercent = heightPercent;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public LayoutParams(Context c, AttributeSet attrs) &#123;</div><div class="line">            super(c, attrs);</div><div class="line">            TypedArray typedArray = c.obtainStyledAttributes(attrs, R.styleable.PercentRelativelayout);</div><div class="line">            widthPercent = typedArray.getFloat(R.styleable.PercentRelativelayout_layout_widthPercent, widthPercent);</div><div class="line">            heightPercent = typedArray.getFloat(R.styleable.PercentRelativelayout_layout_heightPercent, heightPercent);</div><div class="line">            typedArray.recycle();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public LayoutParams(int w, int h) &#123;</div><div class="line">            super(w, h);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public LayoutParams(ViewGroup.LayoutParams source) &#123;</div><div class="line">            super(source);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public LayoutParams(MarginLayoutParams source) &#123;</div><div class="line">            super(source);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @TargetApi(Build.VERSION_CODES.KITKAT)</div><div class="line">        public LayoutParams(RelativeLayout.LayoutParams source) &#123;</div><div class="line">            super(source);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在该类中重写了onMeasure，generateLayoutParams方法，其中LayoutParams 继承自RelativeLayout.LayoutParams,将百分比布局的属性widthPercent,heightPercent初始化，并封装。<br>在generateLayoutParams方法中回调LayoutParams 方法，在onMeasure方法中获取并测量子布局大小，若自定义属性widthPercent ，heightPercent 为非空时，设置子布局大小。</p>
+<ul>
+<li>布局引用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;com.terry.app.zhdemo.view.PercentRelativelayout</div><div class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:layout_marginTop=&quot;?attr/actionBarSize&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id=&quot;@+id/tv_container&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:background=&quot;@android:color/holo_red_dark&quot;</div><div class="line">        app:layout_widthPercent=&quot;0.5&quot;</div><div class="line">        app:layout_heightPercent=&quot;0.8&quot;</div><div class="line">        android:text=&quot;列表内容&quot;</div><div class="line">        android:textSize=&quot;24sp&quot; /&gt;</div><div class="line">&lt;/com.terry.app.zhdemo.view.PercentRelativelayout&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>需要自定义命名空间xmlns:app=”<a href="http://schemas.android.com/apk/res-auto&quot;，" target="_blank" rel="external">http://schemas.android.com/apk/res-auto&quot;，</a> 设置app:layout_widthPercent=”0.5” app:layout_heightPercent=”0.8”，显示效果如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1813980-a335aa09990fe87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="显示效果"></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
