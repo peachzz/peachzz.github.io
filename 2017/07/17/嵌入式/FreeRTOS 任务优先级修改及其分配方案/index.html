@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+       | 归档 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Terry">
+    
+    
+
+    <meta name="description" content="#FreeRTOS 任务优先级修改及其分配方案##任务优先级说明  FreeRTOS 中任务的最高优先级是通过 FreeRTOSConfig.h 文件中的 configMAX_PRIORITIES 进行配置的，用户实际可以使用的优先级范围是 0 到 configMAX_PRIORITIES – 1。比如我们配置此宏定义为 5，那么用户可以使用的优先级号是 0,1,2,3,4，不包含 5，对于这一点">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" | 归档">
+<meta property="og:url" content="https://peachzz.github.io/2017/07/17/嵌入式/FreeRTOS 任务优先级修改及其分配方案/index.html">
+<meta property="og:site_name" content="归档">
+<meta property="og:description" content="#FreeRTOS 任务优先级修改及其分配方案##任务优先级说明  FreeRTOS 中任务的最高优先级是通过 FreeRTOSConfig.h 文件中的 configMAX_PRIORITIES 进行配置的，用户实际可以使用的优先级范围是 0 到 configMAX_PRIORITIES – 1。比如我们配置此宏定义为 5，那么用户可以使用的优先级号是 0,1,2,3,4，不包含 5，对于这一点">
+<meta property="og:image" content="https://peachzz.github.io/2017/07/17/嵌入式/FreeRTOS%20任务优先级修改及其分配方案/20170624165559.png">
+<meta property="og:updated_time" content="2017-07-16T16:38:59.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" | 归档">
+<meta name="twitter:description" content="#FreeRTOS 任务优先级修改及其分配方案##任务优先级说明  FreeRTOS 中任务的最高优先级是通过 FreeRTOSConfig.h 文件中的 configMAX_PRIORITIES 进行配置的，用户实际可以使用的优先级范围是 0 到 configMAX_PRIORITIES – 1。比如我们配置此宏定义为 5，那么用户可以使用的优先级号是 0,1,2,3,4，不包含 5，对于这一点">
+<meta name="twitter:image" content="https://peachzz.github.io/2017/07/17/嵌入式/FreeRTOS%20任务优先级修改及其分配方案/20170624165559.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">归档</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          千里之行始于足下
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title"></h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-17" class="post-meta__date date">2017-07-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="FreeRTOS-任务优先级修改及其分配方案"><a href="#FreeRTOS-任务优先级修改及其分配方案" class="headerlink" title="#FreeRTOS 任务优先级修改及其分配方案"></a>#FreeRTOS 任务优先级修改及其分配方案</h2><p>##任务优先级说明</p>
+<ul>
+<li>FreeRTOS 中任务的最高优先级是通过 FreeRTOSConfig.h 文件中的 configMAX_PRIORITIES 进行<br>配置的，用户实际可以使用的优先级范围是 0 到 configMAX_PRIORITIES – 1。比如我们配置此宏定<br>义为 5，那么用户可以使用的优先级号是 0,1,2,3,4，不包含 5，对于这一点，初学者要特别的注意。</li>
+<li>用户配置任务的优先级数值越小，那么此任务的优先级越低，空闲任务的优先级是 0。</li>
+<li>建议用户配置宏定义 configMAX_PRIORITIES 的最大值不要超过 32，即用户任务可以使用的优先级<br>范围是0到31。因为对于CM内核的移植文件，用户任务的优先级不是大于等于32的话， portmacro.h<br>文件中的宏定义configUSE_PORT_OPTIMISED_TASK_SELECTION会优化优先级列表中要执行的最<br>高优先级任务的获取算法（对于 CM 内核的移植文件，此宏定义默认是使能的，当然，用户也可以在<br>FreeRTOSConfig.h 文件中进行配置）。 相比通用的最高优先级任务获取算法，这两种方式的对比如<br>下：<ul>
+<li>通用方式，没有优化—配置宏定义 configUSE_PORT_OPTIMISED_TASK_SELECTION 为 0：</li>
+<li>所有平台的移植文件都可以配置为 0，因为这是通用方式。</li>
+<li>纯 C 编写，比专用方式效率低。</li>
+<li>可用的优先级数量不限制。</li>
+<li>专用方式，进行优化—配置宏定义 configUSE_PORT_OPTIMISED_TASK_SELECTION 为为 1：</li>
+<li>部分平台支持。</li>
+<li>这些平台架构有专用的汇编指令，比如 CLZ（Count Leading Zeros）指令，通过这些指令<br>可以加速算法执行速度。</li>
+<li>比通用方式高效。</li>
+<li>有最大优先级数限制，通常限制为 32 个。</li>
+</ul>
+</li>
+<li>如果用户在 FreeRTOSConfig.h 文件中配置宏定义 configUSE_TIME_SLICING 为 1，或者没有配置<br>此宏定义，时间片调度都是使能的。 另外，只要芯片资源允许，可以配置任意多个同优先级任务。<br>（备注：没有定义 configUSE_TIME_SLICING，也能使用时间片调度是因为此宏定义默认已经在<br>FreeRTOS.h 文件中使能）</li>
+<li><p>FreeRTOS 中处于运行状态的任务永远是当前能够运行的最高优先级任务。 </p>
+<h2 id="任务优先级分配方案"><a href="#任务优先级分配方案" class="headerlink" title="任务优先级分配方案"></a>任务优先级分配方案</h2><p><img src="20170624165559.png" alt="任务优先级分配方案"></p>
+<blockquote>
+<p>上图为任务优先级设置推荐方式。</p>
+</blockquote>
+</li>
+<li><p>IRQ 任务：IRQ 任务是指通过中断服务程序进行触发的任务，此类任务应该设置为所有任务里面优先<br>级最高的。</p>
+</li>
+<li>高优先级后台任务：比如按键检测，触摸检测，USB 消息处理，串口消息处理等，都可以归为这一类<br>任务。</li>
+<li>低优先级的时间片调度任务：比如 emWin 的界面显示，LED 数码管的显示等不需要实时执行的都可<br>以归为这一类任务。 实际应用中用户不必拘泥于将这些任务都设置为优先级 1 的同优先级任务，可以设置多个优先级，只需注意这类任务不需要高实时性。</li>
+<li>空闲任务：空闲任务是系统任务。</li>
+<li>特别注意：IRQ 任务和高优先级任务必须设置为阻塞式（调用消息等待或者延迟等函数即可），只有<br>这样，高优先级任务才会释放 CPU 的使用权，,从而低优先级任务才有机会得到执行。  </li>
+</ul>
+<p>这里的优先级分配方案是我们推荐的一种方式，实际项目也可以不采用这种方法。 调试出适合项目需<br>求的才是最好的。</p>
+<h2 id="中断优先级和任务优先级区别"><a href="#中断优先级和任务优先级区别" class="headerlink" title="中断优先级和任务优先级区别"></a>中断优先级和任务优先级区别</h2><p>部分初学者也容易在这两个概念上面出现问题。 简单的说，这两个之间没有任何关系，不管中断的优<br>先级是多少，中断的优先级永远高于任何任务的优先级，即任务在执行的过程中，中断来了就开始执行中<br>断服务程序。<br>另外对于 STM32F103，F407 和 F429 来说，中断优先级的数值越小，优先级越高。 而 FreeRTOS<br>的任务优先级是，任务优先级数值越小，任务优先级越低。</p>
+<h2 id="任务优先级修改"><a href="#任务优先级修改" class="headerlink" title="任务优先级修改"></a>任务优先级修改</h2><p>使用如下函数可以实现 FreeRTOS 的任务优先级修改：  </p>
+<p>函数原型：</p>
+<pre><code>void vTaskPrioritySet( TaskHandle_t xTask, /* 任务句柄*/  
+    UBaseType_t uxNewPriority ); /* 给任务配置的新优先级 */
+</code></pre><p>使用这个函数要注意以下问题：</p>
+<p>1.使用此函数需要在 FreeRTOSConfig.h 配置文件中配置如下宏定义为 1</p>
+<figure class="highlight plain"><figcaption><span>INCLUDE_vTaskPrioritySet 1```  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.如果第二个参数里面填的是 NULL，即数值 0 的话，那么配置的就是当前正在执行的任务。  </div><div class="line"></div><div class="line">3.如果被修改的任务的优先级，修改后高于正在执行的任务，将执行任务切换，切换到修改好的高优先</div><div class="line">级任务。</div><div class="line"></div><div class="line">4.第二个参数数值不可大于等于 FreeRTOSConfig.h 文件中的宏定义：  </div><div class="line"></div><div class="line">```#define configMAX_PRIORITIES 配置的数值```  </div><div class="line">## 任务优先级获取</div><div class="line">```UBaseType_t uxTaskPriorityGet( TaskHandle_t xTask ); /* 任务句柄 */</div></pre></td></tr></table></figure>
+<p>使用这个函数要注意以下问题：  </p>
+<p>1.使用此函数需要在 FreeRTOSConfig.h 配置文件中配置如下宏定义为 1</p>
+<p><code>#define INCLUDE_vTaskPriorityGet 1</code>  </p>
+<p>2.如果第二个参数里面填的是 NULL，即数值 0 的话，那么获取的优先级就是当前正在执行的任务。<br><strong>使用举例：</strong>  </p>
+<pre><code>static void vTaskTaskUserIF(void *pvParameters)
+{
+    uint8_t ucKeyCode;
+    while(1)
+    {
+    ucKeyCode = bsp_GetKey();
+    if (ucKeyCode != KEY_NONE)
+    {
+        switch (ucKeyCode)
+        {
+            /* K2 键按下 设置任务 vTaskLED 的优先级为 1 */
+            case KEY_DOWN_K2:
+            printf(&quot;K2 键按下，设置任务 vTaskLED 的优先级为 1\r\n&quot;);
+            vTaskPrioritySet( xHandleTaskLED, 1);
+            printf(&quot;K2 键按下，任务 vTaskLED 的优先级已经设置为： %d\r\n&quot;,
+            (int)uxTaskPriorityGet(xHandleTaskLED));
+            break;
+
+            /* K3 键按下 设置任务 vTaskLED 的优先级为 2 */
+            case KEY_DOWN_K3:
+            printf(&quot;K3 键按下，设置任务 vTaskLED 的优先级为 2\r\n&quot;);
+            vTaskPrioritySet( xHandleTaskLED, 2);
+            printf(&quot;K3 键按下，任务 vTaskLED 的优先级已经设置为： %d\r\n&quot;,
+            (int)uxTaskPriorityGet(xHandleTaskLED));
+            break;
+
+            /* 其他的键值不处理 */
+            default:
+            break;
+            }
+        }
+        vTaskDelay(20);
+    }
+}
+
+static void AppTaskCreate (void)
+{
+    xTaskCreate( vTaskLED, /* 任务函数 */
+    &quot;vTaskLED&quot;, /* 任务名 */
+    512, /* stack 大小，单位 word，也就是 4 字节 */
+    NULL, /* 任务参数 */
+    2, /* 任务优先级*/
+    &amp;xHandleTaskLED ); /* 任务句柄 */
+}
+</code></pre>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
