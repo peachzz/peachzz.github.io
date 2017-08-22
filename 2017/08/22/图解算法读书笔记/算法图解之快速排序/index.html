@@ -7,7 +7,7 @@
     
 
     <title>
-      设计模式之-抽象工厂模式 | 人生最大的失败就是放弃-Stormzhang 
+       | 人生最大的失败就是放弃-Stormzhang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,19 @@
     
     
 
-    <meta name="description" content="工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。  下面用一个例子来说明抽象工厂模式  Cat和Dog都是Animals，Animal都有吃东西的能力，于是有:  Anim">
-<meta name="keywords" content="设计模式">
+    <meta name="description" content="算法图解之快速排序 分而治之D&amp;amp;C策略，D&amp;amp;C算法是递归的，使用D&amp;amp;C解决问题的过程包括两个步骤。  找出基线条件，这种条件必须尽可能简单。 不断将问题分解（或者说缩小规模），直到符合基线条件。  快速排序C语言标准库中的函数qsort实现的就是快速排序。快速排序原理：从数组中选择一个元素，这个元素被称为基准值。现在有：  一个由所有小于基准值的数字组成的子数组； 基准值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之-抽象工厂模式 | 人生最大的失败就是放弃-Stormzhang">
-<meta property="og:url" content="https://peachzz.github.io/2016/10/14/设计模式之-抽象工厂模式/index.html">
+<meta property="og:title" content=" | 人生最大的失败就是放弃-Stormzhang">
+<meta property="og:url" content="https://peachzz.github.io/2017/08/22/图解算法读书笔记/算法图解之快速排序/index.html">
 <meta property="og:site_name" content="人生最大的失败就是放弃-Stormzhang">
-<meta property="og:description" content="工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。  下面用一个例子来说明抽象工厂模式  Cat和Dog都是Animals，Animal都有吃东西的能力，于是有:  Anim">
-<meta property="og:updated_time" content="2016-10-14T08:38:11.032Z">
+<meta property="og:description" content="算法图解之快速排序 分而治之D&amp;amp;C策略，D&amp;amp;C算法是递归的，使用D&amp;amp;C解决问题的过程包括两个步骤。  找出基线条件，这种条件必须尽可能简单。 不断将问题分解（或者说缩小规模），直到符合基线条件。  快速排序C语言标准库中的函数qsort实现的就是快速排序。快速排序原理：从数组中选择一个元素，这个元素被称为基准值。现在有：  一个由所有小于基准值的数字组成的子数组； 基准值">
+<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-21/81396677.jpg">
+<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-22/62056319.jpg">
+<meta property="og:updated_time" content="2017-08-22T15:21:06.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之-抽象工厂模式 | 人生最大的失败就是放弃-Stormzhang">
-<meta name="twitter:description" content="工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。  下面用一个例子来说明抽象工厂模式  Cat和Dog都是Animals，Animal都有吃东西的能力，于是有:  Anim">
+<meta name="twitter:title" content=" | 人生最大的失败就是放弃-Stormzhang">
+<meta name="twitter:description" content="算法图解之快速排序 分而治之D&amp;amp;C策略，D&amp;amp;C算法是递归的，使用D&amp;amp;C解决问题的过程包括两个步骤。  找出基线条件，这种条件必须尽可能简单。 不断将问题分解（或者说缩小规模），直到符合基线条件。  快速排序C语言标准库中的函数qsort实现的就是快速排序。快速排序原理：从数组中选择一个元素，这个元素被称为基准值。现在有：  一个由所有小于基准值的数字组成的子数组； 基准值">
+<meta name="twitter:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-21/81396677.jpg">
     
     
     
@@ -155,27 +157,17 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">设计模式之-抽象工厂模式</h1>
+    <h1 class="post-title"></h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2016-10-14" class="post-meta__date date">2016-10-14</time> 
+      <time datetime="2017-08-22" class="post-meta__date date">2017-08-22</time> 
 
       <span class="post-meta__tags tags">
 
           
-            <font class="categories">
-            &#8226; 分类:
-            <a class="categories-link" href="/categories/设计模式/">设计模式</a>
-            </font>
-          
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/设计模式/">设计模式</a>
-            </font>
           
 
       </span>
@@ -186,66 +178,27 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <ol>
-<li><p>工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。</p>
-</li>
-<li><p>下面用一个例子来说明抽象工厂模式</p>
-<ul>
-<li><p>Cat和Dog都是Animals，Animal都有吃东西的能力，于是有: </p>
-<p><strong>Animals接口</strong></p>
-<p>  public interface Animals {  </p>
-<pre><code>public void eats();  
-</code></pre><p>  }</p>
-<p><strong>Cat类实现Animals接口</strong></p>
-<p>  public class Cat implements Animals {</p>
-<pre><code>@Override
-public void eats() {
-    System.out.println(&quot;cat need to eat food&quot;);
-}
-</code></pre><p>  }<br><strong>Dog类实现Animals接口</strong></p>
-<p>  public class Dog implements Animals{</p>
-<pre><code>@Override
-public void eats() {
-    // TODO Auto-generated method stub
-    System.out.println(&quot;dog need to eat food&quot;);
-}
-</code></pre><p>  }<br><strong>工厂Provider接口</strong></p>
-<p>  public interface Provider {</p>
-<pre><code>public Animals produce();
-</code></pre><p>  }</p>
-<p><strong>两个工厂类</strong></p>
-<p>  public class CatFactory implements Provider{</p>
-<pre><code>@Override
-public Animals produce() {
-    return new Cat();
-}
-</code></pre><p>  }<br><strong>工厂类</strong></p>
-<p>  public class DogFactoru implements Provider{</p>
-<pre><code>@Override
-public Animals produce() {
-    return new Dog();
-}
-</code></pre><p>  }</p>
-<p><strong>最后测试</strong></p>
-<p>  public class Test {</p>
-<pre><code>public static void main(String[] args) {
-    Provider provider = new CatFactory();
-    Animals eat = provider.produce();
-    eat.eats();
-
-    Provider provider2 = new DogFactoru();
-    Animals eat2 =provider2.produce();
-    eat2.eats();
-}
-</code></pre><p>  }</p>
-<p><strong>运行结果</strong>：</p>
-<p>  cat need to eat food<br>  dog need to eat food</p>
-</li>
-</ul>
-</li>
+    <h1 id="算法图解之快速排序"><a href="#算法图解之快速排序" class="headerlink" title="算法图解之快速排序"></a>算法图解之快速排序</h1><hr>
+<h2 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h2><p>D&amp;C策略，D&amp;C算法是递归的，使用D&amp;C解决问题的过程包括两个步骤。</p>
+<ol>
+<li>找出基线条件，这种条件必须尽可能简单。</li>
+<li>不断将问题分解（或者说缩小规模），直到符合基线条件。</li>
 </ol>
-<ul>
-<li>其实这个模式的好处就是，如果你现在想增加一个功能：发及时信息，则只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码。这样做，拓展性较好！</li>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>C语言标准库中的函数qsort实现的就是快速排序。<br>快速排序原理：从数组中选择一个元素，这个元素被称为基准值。现在有：</p>
+<ol>
+<li>一个由所有小于基准值的数字组成的子数组；</li>
+<li>基准值</li>
+<li>一个由所有大于基准值的数组组成的子数组。<br>如果以上两个子数组都是有序的话，合并左边的数组+基准值+右边的数组，完成排序。<br>如果以上两个子数组都是无序的。再将左右两个子数组进行快速排序。再合并结果，完成排序。</li>
+</ol>
+<p><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-21/81396677.jpg" alt=""><br>最糟情况和平均情况</p>
+<p>快速排序的性能高度依赖于你选择的基准值。假设你总是将第一个元素用作基准值，且要处理的数组是有序的。由于快速排序算法不检查输入数组是否有序，因此它依然尝试对其进行排序。</p>
+<p><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-22/62056319.jpg" alt="最糟情况"></p>
+<p>通俗理解为能实现算法，但是调用栈非常长的程序。最佳情况为调用栈最短的算法，也称为平均情况。</p>
+<h2 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h2><ul>
+<li>D&amp;C将问题逐步分解。使用D&amp;C处理列表时，基线条件很可能是空数组或只包含一个元<br>素的数组。</li>
+<li>实现快速排序时，请随机地选择用作基准值的元素。快速排序的平均运行时间为O(nlog n)。</li>
+<li>大O表示法中的常量有时候事关重大，这就是快速排序比合并排序快的原因所在。</li>
+<li>比较简单查找和二分查找时，常量几乎无关紧要，因为列表很长时，O(log n)的速度比O(n)<br>快得多。</li>
 </ul>
 
   </section>

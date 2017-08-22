@@ -7,7 +7,7 @@
     
 
     <title>
-      设计模式之-抽象工厂模式 | 人生最大的失败就是放弃-Stormzhang 
+       | 人生最大的失败就是放弃-Stormzhang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,18 @@
     
     
 
-    <meta name="description" content="工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。  下面用一个例子来说明抽象工厂模式  Cat和Dog都是Animals，Animal都有吃东西的能力，于是有:  Anim">
-<meta name="keywords" content="设计模式">
+    <meta name="description" content="算法图解之选择排序内存工作原理：内存就好像是一个有很多抽屉的柜子，每个抽屉可以放一样东西，当需要将数据存储到内存时，请求计算机提供存储空间，计算机会给你一个存储地址。存储多项数据时，有两种基本的方式-数组和链表。 数组在数组存储数据在内存中地址是连续的，数组可以直接随机地读取元素，而且效率很高。 链表而链表的每一个元素都存储了下一个元素的地址，从而使一些列随机的内存地址串在一起。在链表中元素不是靠">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之-抽象工厂模式 | 人生最大的失败就是放弃-Stormzhang">
-<meta property="og:url" content="https://peachzz.github.io/2016/10/14/设计模式之-抽象工厂模式/index.html">
+<meta property="og:title" content=" | 人生最大的失败就是放弃-Stormzhang">
+<meta property="og:url" content="https://peachzz.github.io/2017/08/22/图解算法读书笔记/算法图解之选择排序/index.html">
 <meta property="og:site_name" content="人生最大的失败就是放弃-Stormzhang">
-<meta property="og:description" content="工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。  下面用一个例子来说明抽象工厂模式  Cat和Dog都是Animals，Animal都有吃东西的能力，于是有:  Anim">
-<meta property="og:updated_time" content="2016-10-14T08:38:11.032Z">
+<meta property="og:description" content="算法图解之选择排序内存工作原理：内存就好像是一个有很多抽屉的柜子，每个抽屉可以放一样东西，当需要将数据存储到内存时，请求计算机提供存储空间，计算机会给你一个存储地址。存储多项数据时，有两种基本的方式-数组和链表。 数组在数组存储数据在内存中地址是连续的，数组可以直接随机地读取元素，而且效率很高。 链表而链表的每一个元素都存储了下一个元素的地址，从而使一些列随机的内存地址串在一起。在链表中元素不是靠">
+<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-22/9336256.jpg">
+<meta property="og:updated_time" content="2017-08-22T15:17:19.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之-抽象工厂模式 | 人生最大的失败就是放弃-Stormzhang">
-<meta name="twitter:description" content="工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。  下面用一个例子来说明抽象工厂模式  Cat和Dog都是Animals，Animal都有吃东西的能力，于是有:  Anim">
+<meta name="twitter:title" content=" | 人生最大的失败就是放弃-Stormzhang">
+<meta name="twitter:description" content="算法图解之选择排序内存工作原理：内存就好像是一个有很多抽屉的柜子，每个抽屉可以放一样东西，当需要将数据存储到内存时，请求计算机提供存储空间，计算机会给你一个存储地址。存储多项数据时，有两种基本的方式-数组和链表。 数组在数组存储数据在内存中地址是连续的，数组可以直接随机地读取元素，而且效率很高。 链表而链表的每一个元素都存储了下一个元素的地址，从而使一些列随机的内存地址串在一起。在链表中元素不是靠">
+<meta name="twitter:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-22/9336256.jpg">
     
     
     
@@ -155,27 +156,17 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">设计模式之-抽象工厂模式</h1>
+    <h1 class="post-title"></h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2016-10-14" class="post-meta__date date">2016-10-14</time> 
+      <time datetime="2017-08-22" class="post-meta__date date">2017-08-22</time> 
 
       <span class="post-meta__tags tags">
 
           
-            <font class="categories">
-            &#8226; 分类:
-            <a class="categories-link" href="/categories/设计模式/">设计模式</a>
-            </font>
-          
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/设计模式/">设计模式</a>
-            </font>
           
 
       </span>
@@ -186,66 +177,22 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <ol>
-<li><p>工厂方法模式有一个问题就是，类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这违背了闭包原则，所以，从设计角度考虑，有一定的问题，如何解决？就用到抽象工厂模式，创建多个工厂类，这样一旦需要增加新的功能，直接增加新的工厂类就可以了，不需要修改之前的代码。</p>
-</li>
-<li><p>下面用一个例子来说明抽象工厂模式</p>
-<ul>
-<li><p>Cat和Dog都是Animals，Animal都有吃东西的能力，于是有: </p>
-<p><strong>Animals接口</strong></p>
-<p>  public interface Animals {  </p>
-<pre><code>public void eats();  
-</code></pre><p>  }</p>
-<p><strong>Cat类实现Animals接口</strong></p>
-<p>  public class Cat implements Animals {</p>
-<pre><code>@Override
-public void eats() {
-    System.out.println(&quot;cat need to eat food&quot;);
-}
-</code></pre><p>  }<br><strong>Dog类实现Animals接口</strong></p>
-<p>  public class Dog implements Animals{</p>
-<pre><code>@Override
-public void eats() {
-    // TODO Auto-generated method stub
-    System.out.println(&quot;dog need to eat food&quot;);
-}
-</code></pre><p>  }<br><strong>工厂Provider接口</strong></p>
-<p>  public interface Provider {</p>
-<pre><code>public Animals produce();
-</code></pre><p>  }</p>
-<p><strong>两个工厂类</strong></p>
-<p>  public class CatFactory implements Provider{</p>
-<pre><code>@Override
-public Animals produce() {
-    return new Cat();
-}
-</code></pre><p>  }<br><strong>工厂类</strong></p>
-<p>  public class DogFactoru implements Provider{</p>
-<pre><code>@Override
-public Animals produce() {
-    return new Dog();
-}
-</code></pre><p>  }</p>
-<p><strong>最后测试</strong></p>
-<p>  public class Test {</p>
-<pre><code>public static void main(String[] args) {
-    Provider provider = new CatFactory();
-    Animals eat = provider.produce();
-    eat.eats();
-
-    Provider provider2 = new DogFactoru();
-    Animals eat2 =provider2.produce();
-    eat2.eats();
-}
-</code></pre><p>  }</p>
-<p><strong>运行结果</strong>：</p>
-<p>  cat need to eat food<br>  dog need to eat food</p>
-</li>
-</ul>
-</li>
+    <h1 id="算法图解之选择排序"><a href="#算法图解之选择排序" class="headerlink" title="算法图解之选择排序"></a>算法图解之选择排序</h1><p>内存工作原理：内存就好像是一个有很多抽屉的柜子，每个抽屉可以放一样东西，当需要将数据存储到内存时，请求计算机提供存储空间，计算机会给你一个存储地址。存储多项数据时，有两种基本的方式-数组和链表。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>在数组存储数据在内存中地址是连续的，数组可以直接随机地读取元素，而且效率很高。</p>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>而链表的每一个元素都存储了下一个元素的地址，从而使一些列随机的内存地址串在一起。在链表中元素不是靠在一起的，无法迅速获取其中某一个元素的内存地址。<br><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-22/9336256.jpg" alt=""></p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>主要思想：</p>
+<ol>
+<li>先编写一个用于找出数组中最小元素的函数。返回数组中最小元素的索引为index；</li>
+<li>然后创建一个新的空数组，将找出数组中最小的元素加入到新的数组中。<br>这个新的数组即为排序后的数组。</li>
 </ol>
-<ul>
-<li>其实这个模式的好处就是，如果你现在想增加一个功能：发及时信息，则只需做一个实现类，实现Sender接口，同时做一个工厂类，实现Provider接口，就OK了，无需去改动现成的代码。这样做，拓展性较好！</li>
+<h2 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h2><ul>
+<li>计算机内存犹如一大堆抽屉。</li>
+<li>需要存储多个元素时，可使用数组或链表。</li>
+<li>数组的元素都在一起。</li>
+<li>链表的元素是分开的，其中每个元素都存储了下一个元素的地址。</li>
+<li>数组的读取速度很快。</li>
+<li>链表的插入和删除速度很快。</li>
+<li>在同一个数组中，所有元素的类型都必须相同（都为int、double等）。</li>
 </ul>
 
   </section>
