@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      算法图解之广度优先搜索(五) | 千里之行始于足下 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Terry">
+    
+    
+
+    <meta name="description" content="图简介图的概念为：找出最短路径，比如去某地乘坐交通工具有多种换乘方式到达同一目的地，其中最短次换乘，最快到达目的地的方法称为最短路径，解决最短路径问题的算法被称为广度优先搜索。 图由节点和边组成。相邻的两个节点称为邻居。邻居的节点是直接相连的。图用来模拟不同的东西是如何相连的。解决问题的思想为：      是否有路径； 最短路径（最优方案）；    广度优先搜索中跟起点直连的元素为一度关系，跟一度">
+<meta name="keywords" content="图解算法读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法图解之广度优先搜索(五) | 千里之行始于足下">
+<meta property="og:url" content="https://peachzz.github.io/2017/08/24/图解算法读书笔记/算法图解之广度优先搜索(五)/index.html">
+<meta property="og:site_name" content="千里之行始于足下">
+<meta property="og:description" content="图简介图的概念为：找出最短路径，比如去某地乘坐交通工具有多种换乘方式到达同一目的地，其中最短次换乘，最快到达目的地的方法称为最短路径，解决最短路径问题的算法被称为广度优先搜索。 图由节点和边组成。相邻的两个节点称为邻居。邻居的节点是直接相连的。图用来模拟不同的东西是如何相连的。解决问题的思想为：      是否有路径； 最短路径（最优方案）；    广度优先搜索中跟起点直连的元素为一度关系，跟一度">
+<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/49349611.jpg">
+<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/27848018.jpg">
+<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/74833026.jpg">
+<meta property="og:updated_time" content="2017-08-24T16:07:27.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法图解之广度优先搜索(五) | 千里之行始于足下">
+<meta name="twitter:description" content="图简介图的概念为：找出最短路径，比如去某地乘坐交通工具有多种换乘方式到达同一目的地，其中最短次换乘，最快到达目的地的方法称为最短路径，解决最短路径问题的算法被称为广度优先搜索。 图由节点和边组成。相邻的两个节点称为邻居。邻居的节点是直接相连的。图用来模拟不同的东西是如何相连的。解决问题的思想为：      是否有路径； 最短路径（最优方案）；    广度优先搜索中跟起点直连的元素为一度关系，跟一度">
+<meta name="twitter:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/49349611.jpg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">千里之行始于足下</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          人生最大的失败就是放弃-Stormzhang
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">算法图解之广度优先搜索(五)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-08-24" class="post-meta__date date">2017-08-24</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/图解算法读书笔记/">图解算法读书笔记</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="图简介"><a href="#图简介" class="headerlink" title="图简介"></a>图简介</h2><p>图的概念为：找出最短路径，比如去某地乘坐交通工具有多种换乘方式到达同一目的地，其中最短次换乘，最快到达目的地的方法称为最短路径，解决最短路径问题的算法被称为广度优先搜索。</p>
+<p>图由节点和边组成。相邻的两个节点称为邻居。邻居的节点是直接相连的。图用来模拟不同的东西是如何相连的。解决问题的思想为：    </p>
+<ol>
+<li>是否有路径；</li>
+<li>最短路径（最优方案）；</li>
+</ol>
+<center><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/49349611.jpg" alt=""></center>
+
+<p>广度优先搜索中跟起点直连的元素为一度关系，跟一度关系直连的为二度关系，跟二度关系直连的为三度关系，以此类推。查找时候，先查找一度关系列表，然后查找二度关系列表……最终找到要找到的名单。</p>
+<p>注意：广度优先搜索不仅查找从A到B的路径，而且找到的是最短的路径。队列就是实现这种目的的一种数据结构。 </p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列的工作原理与现实生活中的队列完全相同。假设你与朋友一起在公交车站排队，如果你排在他前面，你将先上车。队列的工作原理与此相同。队列类似于栈，你不能随机地访问队列中的元素。队列只支持两种操作：入队和出队。<br>队列是一种先进先出（First In First Out，FIFO）的数据结构，而栈是一种后进先出（Last In First Out，LIFO）的数据结构。</p>
+<h2 id="实现图"><a href="#实现图" class="headerlink" title="实现图"></a>实现图</h2><p>每个节点都与邻近节点相连，如果表示类似于“你→Bob”这样的关系呢？好在你知道的一种结构让你能够表示这种关系，它就是散列表！记住，散列表让你能够将键映射到值。在这里，你要将节点映射到其所有邻居。</p>
+<p>表示这种映射关系的Python代码如下。</p>
+<pre><code>graph = {} 
+graph[&quot;you&quot;] = [&quot;alice&quot;, &quot;bob&quot;, &quot;claire&quot;] 
+</code></pre><p>注意，“你”被映射到了一个数组，因此graph[“you”]是一个数组，其中包含了“你”的所有邻居。</p>
+<p>图不过是一系列的节点和边，因此在Python中，只需使用上述代码就可表示一个图。那像下面这样更大的图呢？</p>
+<center><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/27848018.jpg" alt=""></center>
+
+<p>表示它的Python代码如下。</p>
+<pre><code>graph = {} 
+graph[&quot;you&quot;] = [&quot;alice&quot;, &quot;bob&quot;, &quot;claire&quot;] 
+graph[&quot;bob&quot;] = [&quot;anuj&quot;, &quot;peggy&quot;] 
+graph[&quot;alice&quot;] = [&quot;peggy&quot;] 
+graph[&quot;claire&quot;] = [&quot;thom&quot;, &quot;jonny&quot;] 
+graph[&quot;anuj&quot;] = [] 
+graph[&quot;peggy&quot;] = [] 
+graph[&quot;thom&quot;] = [] 
+graph[&quot;jonny&quot;] = [] 
+</code></pre><p>顺便问一句：键—值对的添加顺序重要吗？换言之，如果你这样编写代码：</p>
+<pre><code>graph[&quot;claire&quot;] = [&quot;thom&quot;, &quot;jonny&quot;] 
+graph[&quot;anuj&quot;] = [] 
+</code></pre><p>而不是这样编写代码：</p>
+<pre><code>graph[&quot;anuj&quot;] = [] 
+graph[&quot;claire&quot;] = [&quot;thom&quot;, &quot;jonny&quot;] 
+</code></pre><p>对结果有影响吗？<br>只要回顾一下前一章介绍的内容，你就知道没影响。散列表是无序的，因此添加键—值对的顺序无关紧要。</p>
+<p>Anuj、Peggy、Thom和Jonny都没有邻居，这是因为虽然有指向他们的箭头，但没有从他们出发指向其他人的箭头。这被称为有向图（directed graph），其中的关系是单向的。因此，Anuj是Bob的邻居，但Bob不是Anuj的邻居。无向图（undirected graph）没有箭头，直接相连的节点互<br>为邻居。例如，下面两个图是等价的。</p>
+<center><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-24/74833026.jpg" alt=""></center>
+
+<h2 id="实现算法"><a href="#实现算法" class="headerlink" title="实现算法"></a>实现算法</h2>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

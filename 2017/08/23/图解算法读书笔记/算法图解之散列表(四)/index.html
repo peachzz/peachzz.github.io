@@ -7,7 +7,7 @@
     
 
     <title>
-      算法图解之递归(一) | 千里之行始于足下 
+      算法图解之散列表(四) | 千里之行始于足下 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,20 +16,17 @@
     
     
 
-    <meta name="description" content="什么是递归有一个盒子，里面有哦若干个盒子，钥匙就在某个盒子里面，盒子里面有盒子又有盒子。递归指的是调用自己的函数。 查找盒子中钥匙的过程就是一种方法。      首先创建创建一个要查找的盒子堆。 从盒子堆中取出一个盒子，在里面找。 如果找到的是盒子，就将其加入盒子堆中，以便以后再查找。 如果找到钥匙，则大功告成! 回到第二步。  第二种方法。       检查盒子中的每样东西。 如果是盒子就返回到">
+    <meta name="description" content="散列函数散列表函数是无论你给它上面数据，它都还你一个数字。散列函数需要满足以下要求：  它必须是一致的。例如，假设你输入apple时得到的是4，那么每次输入apple时，得到的都必须为4。如果不是这样，散列表将毫无用处。 它应将不同的输入映射到不同的数字。例如，如果一个散列函数不管输入是什么都返回1，它就不是好的散列函数。最理想的情况是，将不同的输入映射到不同的数字。  散列函数有以下特点：  散">
 <meta name="keywords" content="图解算法读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法图解之递归(一) | 千里之行始于足下">
-<meta property="og:url" content="https://peachzz.github.io/2017/08/22/图解算法读书笔记/算法图解之递归(一)/index.html">
+<meta property="og:title" content="算法图解之散列表(四) | 千里之行始于足下">
+<meta property="og:url" content="https://peachzz.github.io/2017/08/23/图解算法读书笔记/算法图解之散列表(四)/index.html">
 <meta property="og:site_name" content="千里之行始于足下">
-<meta property="og:description" content="什么是递归有一个盒子，里面有哦若干个盒子，钥匙就在某个盒子里面，盒子里面有盒子又有盒子。递归指的是调用自己的函数。 查找盒子中钥匙的过程就是一种方法。      首先创建创建一个要查找的盒子堆。 从盒子堆中取出一个盒子，在里面找。 如果找到的是盒子，就将其加入盒子堆中，以便以后再查找。 如果找到钥匙，则大功告成! 回到第二步。  第二种方法。       检查盒子中的每样东西。 如果是盒子就返回到">
-<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-12/64697300.jpg">
-<meta property="og:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-12/71171247.jpg">
-<meta property="og:updated_time" content="2017-08-22T16:28:50.698Z">
+<meta property="og:description" content="散列函数散列表函数是无论你给它上面数据，它都还你一个数字。散列函数需要满足以下要求：  它必须是一致的。例如，假设你输入apple时得到的是4，那么每次输入apple时，得到的都必须为4。如果不是这样，散列表将毫无用处。 它应将不同的输入映射到不同的数字。例如，如果一个散列函数不管输入是什么都返回1，它就不是好的散列函数。最理想的情况是，将不同的输入映射到不同的数字。  散列函数有以下特点：  散">
+<meta property="og:updated_time" content="2017-08-24T13:08:04.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法图解之递归(一) | 千里之行始于足下">
-<meta name="twitter:description" content="什么是递归有一个盒子，里面有哦若干个盒子，钥匙就在某个盒子里面，盒子里面有盒子又有盒子。递归指的是调用自己的函数。 查找盒子中钥匙的过程就是一种方法。      首先创建创建一个要查找的盒子堆。 从盒子堆中取出一个盒子，在里面找。 如果找到的是盒子，就将其加入盒子堆中，以便以后再查找。 如果找到钥匙，则大功告成! 回到第二步。  第二种方法。       检查盒子中的每样东西。 如果是盒子就返回到">
-<meta name="twitter:image" content="http://ot7l5qqyu.bkt.clouddn.com/17-8-12/64697300.jpg">
+<meta name="twitter:title" content="算法图解之散列表(四) | 千里之行始于足下">
+<meta name="twitter:description" content="散列函数散列表函数是无论你给它上面数据，它都还你一个数字。散列函数需要满足以下要求：  它必须是一致的。例如，假设你输入apple时得到的是4，那么每次输入apple时，得到的都必须为4。如果不是这样，散列表将毫无用处。 它应将不同的输入映射到不同的数字。例如，如果一个散列函数不管输入是什么都返回1，它就不是好的散列函数。最理想的情况是，将不同的输入映射到不同的数字。  散列函数有以下特点：  散">
     
     
     
@@ -158,12 +155,12 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">算法图解之递归(一)</h1>
+    <h1 class="post-title">算法图解之散列表(四)</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2017-08-22" class="post-meta__date date">2017-08-22</time> 
+      <time datetime="2017-08-23" class="post-meta__date date">2017-08-23</time> 
 
       <span class="post-meta__tags tags">
 
@@ -184,35 +181,29 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h2 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h2><p>有一个盒子，里面有哦若干个盒子，钥匙就在某个盒子里面，盒子里面有盒子又有盒子。递归指的是调用自己的函数。</p>
-<p>查找盒子中钥匙的过程就是一种方法。<br><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-12/64697300.jpg" alt="">    </p>
+    <h2 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h2><p>散列表函数是无论你给它上面数据，它都还你一个数字。散列函数需要满足以下要求：</p>
 <ul>
-<li>首先创建创建一个要查找的盒子堆。</li>
-<li>从盒子堆中取出一个盒子，在里面找。</li>
-<li>如果找到的是盒子，就将其加入盒子堆中，以便以后再查找。</li>
-<li>如果找到钥匙，则大功告成!</li>
-<li>回到第二步。</li>
+<li>它必须是一致的。例如，假设你输入apple时得到的是4，那么每次输入apple时，得到的都必须为4。如果不是这样，散列表将毫无用处。</li>
+<li>它应将不同的输入映射到不同的数字。例如，如果一个散列函数不管输入是什么都返回1，它就不是好的散列函数。最理想的情况是，将不同的输入映射到不同的数字。</li>
 </ul>
-<p>第二种方法。    </p>
-<p><img src="http://ot7l5qqyu.bkt.clouddn.com/17-8-12/71171247.jpg" alt=""></p>
+<p>散列函数有以下特点：</p>
 <ul>
-<li>检查盒子中的每样东西。</li>
-<li>如果是盒子就返回到第一步。</li>
-<li>如果是钥匙，就大功告成！</li>
+<li>散列函数总是将同样的输入映射到相同的索引。</li>
+<li>散列函数将不同的输入映射到不同的索引。</li>
+<li>散列函数知道数组有多大，只返回有效的索引。</li>
 </ul>
-<p>综上两种算法，第一种只要盒子堆不为空就从中取一个盒子，并在其中仔细查找。</p>
-<p>第二种方法使用递归——函数调用自己。两种方法的左右相同，循环性能更好，但是递归的方法更容易理解。</p>
-<hr>
-<h2 id="基线条件和递归条件"><a href="#基线条件和递归条件" class="headerlink" title="基线条件和递归条件"></a>基线条件和递归条件</h2><p>编写递归函数时，必须告诉它何时停止递归，正因为如此，每个递归函数都有两个部分：<strong>基线条件</strong>和<strong>递归条件</strong>。递归条件指的是函数调用自己，而基线条件指的是函数不再调用自己，从而避免形成无限循环。</p>
-<hr>
-<h2 id="栈-（后进先出）"><a href="#栈-（后进先出）" class="headerlink" title="栈 （后进先出）"></a>栈 （后进先出）</h2><p>栈主要实现了两个功能，数据的压入，和数据的读取并删除。<br>栈有两种操作：压入和弹出。</p>
-<h2 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h2><p>计算机再内部使用被称为调用栈的栈。所有函数调用都进入调用栈。调用栈可能很长，这将占用大量内存。</p>
-<h2 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h2><ul>
-<li>递归指的是调用自己的函数。</li>
-<li>每个递归函数都有两个条件：基线条件和递归条件。</li>
-<li>栈有两种操作：压入和弹出。</li>
-<li>所有函数调用都进入调用栈。</li>
-<li>调用栈可能很长，这将占用大量的内存。</li>
+<p><strong>散列表</strong>    </p>
+<p>散列表由键和值组成。</p>
+<h2 id="散列表应用"><a href="#散列表应用" class="headerlink" title="散列表应用"></a>散列表应用</h2><p><strong>用于查找</strong>    ：通过输入键值能快速查找数据    </p>
+<p><strong>防止重复</strong> ：通过查询键值是否存在散列表中，来判断数据是否重复。</p>
+<p><strong>用于缓存</strong> ：仅当URL不在缓存中时，你才让服务器做些处理，并将处理生成的数据存储到缓存中，再返<br>回它。这样，当下次有人请求该URL时，你就可以直接发送缓存中的数据，而不用再让服务器进<br>行处理了。</p>
+<h2 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h2><p>如果给两个键值分配的位置相同，这种情况呗成为冲突。</p>
+<p>填装因子<br>散列表包含元素读数与位置总数的比值为填装因子，当填装因子大于0.7就调整散列表的长度。</p>
+<h2 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h2><p>散列表适合用于：</p>
+<ul>
+<li>模拟映射关系；</li>
+<li>防止重复；</li>
+<li>缓存/记住数据，以免服务器再通过处理来生成它们。</li>
 </ul>
 
   </section>
